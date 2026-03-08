@@ -1,0 +1,106 @@
+.light {
+    --bg-color: #eee;
+    --text-color: #333;
+    --place-holder-text-color: #888;
+    --menu-color: #000;
+    --link-color: purple;
+    --main-border-color: lightgrey;
+    --hover-bg-color: lightgrey;
+    --border-hover-color: #777;
+    --border-over-shadow: #999;
+}
+
+.dark {
+    --bg-color: #121212;
+    --text-color: #d6cfbe;
+    --place-holder-text-color: #61605e;
+    --menu-color: #b7ac90;
+    --link-color: #92b2e5;
+    --main-border-color: #4a4946;
+    --hover-bg-color: #343330;
+    --border-hover-color: #c1b89f;
+    --border-over-shadow: #ccc3af;
+    --danger: #9c2121;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 5;
+    font-family: 'Courier New', Courier, monospace, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+:global(.visually-hidden:not(:focus):not(:active)) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+}
+
+main {
+    flex: 1;
+}
+
+.site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+:where(h2, h3, h4, h5, h6) {
+    .icon-link {
+        position: relative;
+
+        &::before {
+            content: '#';
+            position: absolute;
+            left: -1ch;
+            top: 0;
+            line-height: 1;
+            opacity: 0;
+            text-decoration: underline;
+        }
+    }
+
+    &:hover .icon-link::before {
+        opacity: 1;
+    }
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+blockquote {
+    position: relative;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    border-left: 4px solid var(--main-border-color);
+    font-style: italic;
+    color: var(--text-color);
+
+    &::before {
+        content: '“';
+        font-size: 3rem;
+        position: absolute;
+        left: 10px;
+        top: 5px;
+        color: var(--main-border-color);
+    }
+}
+
+img {
+    border: 4px solid #999;
+    max-width: 100%;
+    vertical-align: middle;
+}
