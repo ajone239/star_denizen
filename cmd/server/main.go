@@ -10,6 +10,7 @@ const StaticDir string = "./frontend/build"
 
 func main() {
 	server := internal.NewServer(StaticDir)
+
 	err := server.Run()
 
 	if err != nil {
